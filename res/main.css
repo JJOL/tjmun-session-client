@@ -1,0 +1,20 @@
+#base-root {
+    -fx-background-color: white;
+    -fx-background-image: url("tjmunbanner.jpg");
+
+    -fx-background-position: bottom right;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch auto;
+}
+
+.above {
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.flashable-off {
+    -fx-effect: dropshadow(three-pass-box, blue, 10, 0, 0, 0);
+}
+
+.flashable-on {
+    -fx-effect: dropshadow(three-pass-box, red, 10, 0, 0, 0);
+}
