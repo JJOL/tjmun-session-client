@@ -2,9 +2,10 @@
     -fx-background-color: white;
     -fx-background-image: url("tjmunbanner.jpg");
 
+	
     -fx-background-position: bottom right;
     -fx-background-repeat: no-repeat;
-    -fx-background-size: stretch auto;
+    -fx-background-size: cover;
 }
 
 .above {

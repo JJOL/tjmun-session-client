@@ -92,7 +92,7 @@ public class WelcomeScreen implements AppWindow, DatabaseStateDependent{
         VBox launchWrapperSection = new VBox();
         HBox launchSection = new HBox(6);
         Button startButton = new Button("Start");
-        final ComboBox<String> protocolSelect = new ComboBox<>(FXCollections.observableArrayList("UN", "OEAS"));
+        final ComboBox<String> protocolSelect = new ComboBox<>(FXCollections.observableArrayList("UN", "OAS"));
         protocolSelect.getSelectionModel().select(0);
 
         protocolSelect.setPrefWidth(147);
@@ -167,12 +167,12 @@ public class WelcomeScreen implements AppWindow, DatabaseStateDependent{
                     return;
                 }
                 final MUNProtocol protocol = (protocolSelect.getSelectionModel().getSelectedItem().charAt(0) == 'U') ?
-                        MUNProtocol.UN : MUNProtocol.OAES;
+                        MUNProtocol.UN : MUNProtocol.OAS;
                 app.unsubscribeDatabaseStateListener(listener);
                 CommitteeInfo info = new CommitteeInfo("Topic A", 0);
                 DebateInfo debateInfo = new DebateInfo();
                 debateInfo.protocol = (protocolSelect.getSelectionModel().getSelectedItem().charAt(0) == 'U') ?
-                        MUNProtocol.UN : MUNProtocol.OAES;
+                        MUNProtocol.UN : MUNProtocol.OAS;
                 debateInfo.language = (languageSelect.getSelectionModel().getSelectedItem().charAt(0) == 'E') ? Language.ENGLISH : Language.SPANISH;
                 System.out.println(debateInfo.language.toString());
                 new MainWindow(window, app, debateInfo, info);

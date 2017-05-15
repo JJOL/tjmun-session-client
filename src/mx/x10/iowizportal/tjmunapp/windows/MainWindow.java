@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -120,6 +121,8 @@ public class MainWindow implements AppWindow {
                             if (!countriesQueueList.getItems().contains(countryAdded)) {
                                 countriesQueueList.getItems().add(countryAdded);
                                 if(debateInfo.protocol == MUNProtocol.UN  && !inTimeCounting) {
+                                	Image countryImage = new Image(getImagePathForCountry(countryAdded));
+                                	System.out.println(getImagePathForCountry(countryAdded));
                                     flagView.setImage(new Image(getImagePathForCountry(countryAdded)));
                                 }
                             }
@@ -249,7 +252,7 @@ public class MainWindow implements AppWindow {
         staffDisplays.add(new InfoStaffDisplay(false, CO_CHAIRS.getName(), "Co-Chair Name"));
         debateState = new DebateStateDisplay(false, states, DEBATE_INFO);
         staffDisplays.add(debateState);
-        //Label l = new Label("á");
+        //Label l = new Label("ï¿½");
         //column2.getChildren().add(l);
 
         final InfoStaff infoStaff;
@@ -303,6 +306,39 @@ public class MainWindow implements AppWindow {
         for(TransitionFieldLabel field : staffDisplays) {
             field.attach(column2);
         }
+        
+        // Logos box in the middle column at the bottom
+        HBox logosBox = new HBox();
+        
+        int imgWidth  = (int) ((column2.getWidth()-10) / 2);
+        int imgHeight = 100;
+        // 2 images 2 logos
+        ImageView vd = new ImageView(ResourceLibrary.ITJ_LOGO);
+        vd.setFitWidth(imgWidth);
+        vd.setFitHeight(imgHeight);
+        ImageView vd2 = new ImageView(ResourceLibrary.TJMUN_LOGO);
+        vd2.setFitWidth(imgWidth);
+        vd2.setFitHeight(imgHeight);
+        logosBox.getChildren().add(vd);
+        logosBox.getChildren().add(vd2);
+        
+        
+        column2.getChildren().add(logosBox);
+        
+        // Calculate position after everything is in place
+        Platform.runLater(() -> {
+        	Bounds boundsInScene = logosBox.localToScene(logosBox.getBoundsInLocal());
+            // Get Desire Y
+            int desireY = (int) (window.getHeight() - boundsInScene.getHeight() - 20);
+            // Get the offset Needed to Apply
+            int offsetY = (int) (desireY  - boundsInScene.getMinY());
+            
+            // Translate the logos box
+            logosBox.setTranslateY(offsetY);
+            
+        });
+        
+        
         infoStaff = new InfoStaff(staffDisplays.toArray(new TransitionFieldLabel[staffDisplays.size()]));
         //infoStaff = new InfoStaff(stateDisplay, chairsDisplay, coChairsDisplay, committeeDisplay, topicsDisplay);
 
@@ -393,7 +429,11 @@ public class MainWindow implements AppWindow {
         } else {
             basePath += ".png";
         }
-        return "file:/" + basePath;
+        //String s = "";
+        //s.matches("ac");
+        System.out.println(System.getProperty("os.name"));
+        //return "file:/" + basePath;
+        return "file:" + basePath;
     }
 
     @Override

@@ -11,10 +11,13 @@ public class ResourceLibrary {
     public final static String SHADOW_BOX_B = "-fx-effect: dropshadow(three-pass-box, blue, 10, 0, 0, 0);";
     public final static String SHADOW_BOX_R = "-fx-effect: dropshadow(three-pass-box, red, 10, 0, 0, 0);";
 
-    public static final Image CROSS_ICON = new Image("cross.png");
-    public static final Image CHECK_ICON = new Image("check.png");
-    public static final Image DEFAULT_FLAG = new Image("mun_flag.jpg");
-    public static final Image PLUS_ICON  = new Image("plus.png");
+    public static final Image CROSS_ICON = new Image("/cross.png");
+    public static final Image CHECK_ICON = new Image("/check.png");
+    public static final Image DEFAULT_FLAG = new Image("/mun_flag.jpg");
+    public static final Image PLUS_ICON  = new Image("/plus.png");
+    
+    public static final Image ITJ_LOGO  = new Image("/itj-logo.jpg");
+    public static final Image TJMUN_LOGO  = new Image("/tjmun-logo.png");
 
     public static final int CENTRAL_COLUMN_WIDTH = 300;
 

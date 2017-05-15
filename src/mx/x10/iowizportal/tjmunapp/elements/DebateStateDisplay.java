@@ -11,7 +11,7 @@ import javafx.scene.text.FontWeight;
 import mx.x10.iowizportal.tjmunapp.utils.DebateInfo;
 import mx.x10.iowizportal.tjmunapp.utils.ResourceLibrary;
 import mx.x10.iowizportal.tjmunapp.utils.consts.MUNProtocol;
-import mx.x10.iowizportal.tjmunapp.utils.consts.OEASDebateStates;
+import mx.x10.iowizportal.tjmunapp.utils.consts.OASDebateStates;
 import mx.x10.iowizportal.tjmunapp.utils.consts.UNDebateStates;
 
 import javax.crypto.spec.OAEPParameterSpec;
@@ -86,11 +86,11 @@ public class DebateStateDisplay extends TransitionFieldLabel {
             }
             return UNDebateStates.SPEAKERS_LIST;
         } else {
-            for (OEASDebateStates state : OEASDebateStates.values()) {
+            for (OASDebateStates state : OASDebateStates.values()) {
                 if (Objects.equals(state.getName(), activeState))
                     return state;
             }
-            return OEASDebateStates.PRESENTATION;
+            return OASDebateStates.PRESENTATION;
         }
         //return null;
     }
@@ -102,7 +102,7 @@ public class DebateStateDisplay extends TransitionFieldLabel {
             UNDebateStates state = (UNDebateStates) data;
             activeState = state.getName();
         } else {
-            OEASDebateStates state = (OEASDebateStates) data;
+            OASDebateStates state = (OASDebateStates) data;
             activeState = state.getName();
         }
         Platform.runLater(() -> constructShowDisplay());

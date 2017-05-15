@@ -5,7 +5,7 @@ import mx.x10.iowizportal.tjmunapp.ApplicationCore;
 /**
  * Created by JJOL on 05/11/2015.
  */
-public enum OEASDebateStates {
+public enum OASDebateStates {
 
     PRESENTATION("Presentation", "Presentaci\u00F3n"), FREE_CAUCUS("Free Caucus", "Debate Libre"),
     OPEN_CAUCUS("Open Caucus", "Debate Abierto"), PRESENTATION_WITH_CONCLUSION("Presentation and Conclusions", "Presentaci\u00F3n con Conclusiones"),
@@ -16,7 +16,7 @@ public enum OEASDebateStates {
     public String US_name;
     public String ES_name;
 
-    OEASDebateStates(String US_name, String ES_name) {
+    OASDebateStates(String US_name, String ES_name) {
         this.US_name = US_name;
         this.ES_name = ES_name;
     }

@@ -5,7 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import mx.x10.iowizportal.tjmunapp.utils.consts.MUNProtocol;
-import mx.x10.iowizportal.tjmunapp.utils.consts.OEASDebateStates;
+import mx.x10.iowizportal.tjmunapp.utils.consts.OASDebateStates;
 import mx.x10.iowizportal.tjmunapp.utils.consts.UNDebateStates;
 
 import static mx.x10.iowizportal.tjmunapp.utils.consts.StaffPosition.SUB_TOPIC;
